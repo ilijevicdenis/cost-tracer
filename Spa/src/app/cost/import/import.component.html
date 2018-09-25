@@ -1,4 +1,4 @@
-<div [formGroup]="storeForm">
+<form [formGroup]="storeForm">
     <div>
         <label>Datum:</label>
         <input type="date" formControlName="costDate" />
@@ -13,9 +13,35 @@
     <button type="button" (click)="deleteMarked()">Obrisi oznacene</button>
   </div>
 
-  <div formArrayName="costs" *ngFor="let cost of storeForm.get('costs').controls; let i = index">
-    <div [formGroupName]="i">
-      <input type="text" formControlName="productName" />
+  <ng-container formArrayName="costs">
+    <div *ngFor="let cost of storeForm.get('costs').controls; let i = index" [formGroupName]="i">
+      <div>
+          <label>Product name:</label>
+          <input type="text" formControlName="productName" />
+      </div>
+      <div>
+        <label>Product category:</label>
+        <select>
+            <option></option>
+            <option></option>
+          </select>
+      </div>
+      <div>
+        <label>Quantity:</label>
+        <input type="number" formControlName="quantity" />
+      </div>
+      <div>
+        <label>Measure unit:</label>
+        <select>
+          <option></option>
+          <option></option>
+        </select>
+      </div>
+      <div>
+        <label>Price:</label>
+        <input type="number" formControlName="price" />
+      </div>
     </div>
-  </div>
-</div>
+  </ng-container>
+
+  </form>

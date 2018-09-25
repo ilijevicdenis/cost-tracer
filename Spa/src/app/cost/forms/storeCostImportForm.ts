@@ -24,8 +24,9 @@ export class StoreCostImportForm {
         return this.fb.group({
             'productName': ['', Validators.required],
             'productCategory': ['', Validators.required],
-            'productUnit': ['', Validators.required],
-            'productPrice': ['', Validators.required]
+            'quantity': ['', Validators.required],
+            'measureUnit': ['', Validators.required],
+            'price': ['', Validators.required]
         });
     }
 
