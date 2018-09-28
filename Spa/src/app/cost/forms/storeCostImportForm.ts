@@ -22,6 +22,7 @@ export class StoreCostImportForm {
 
     private generateRow() : FormGroup {
         return this.fb.group({
+            'markedForDeletion': false,
             'productName': ['', Validators.required],
             'productCategory': ['', Validators.required],
             'quantity': ['', Validators.required],
