@@ -1,0 +1,40 @@
+{
+    "productCategory" : [
+        {
+            "Id" :  1,
+            "Name" : "Test category 0",
+            "Description": "Test description",
+            "IsActive":  true
+        },
+        {
+            "Id" :  2,
+            "Name" : "Test category 1",
+            "Description": "Test description",
+            "IsActive":  true
+        },
+        {
+            "Id" :  3,
+            "Name" : "Test category 2",
+            "Description": "Test description",
+            "IsActive":  true
+        },
+        {
+            "Id" :  4,
+            "Name" : "Test category 3",
+            "Description": "Test description",
+            "IsActive":  true
+        }
+    ],
+    "measureUnit": [
+        {
+            "Id" : 1,
+            "Value" : "kg",
+            "IsActive" : true
+        },
+        {
+            "Id" : 2,
+            "Value" : "kom",
+            "IsActive" : true
+        }
+    ]
+}
