@@ -1,5 +1,5 @@
 {
-    "productCategory" : [
+    "ProductCategory" : [
         {
             "Id" :  1,
             "Name" : "Test category 0",

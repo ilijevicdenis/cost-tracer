@@ -33,7 +33,7 @@ export class ProductCategory implements IProductCategory, IValidate<ProductCateg
         return new this(<IProductCategory>{});
     } 
 
-    public static Instaniate(data : IProductCategory) : ProductCategory {
+    public static Instantiate(data : IProductCategory) : ProductCategory {
         return new this(data);
     }
 

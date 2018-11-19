@@ -1,51 +1,79 @@
 <form [formGroup]="storeForm">
-    <div>
-        <label>Datum:</label>
-        <input type="date" formControlName="costDate" />
-    </div>
-    <div>
-      <label>Valuta:</label>
-      <input type="text" formControlName="currency" />
+
+  <div class="columns">
+    <div class="column is-one-quarter">
+      <div class="field">
+        <label class="label">Date:</label>
+        <div class="control">
+          <input type="date" class="input" formControlName="costDate" />
+        </div>
+      </div>
     </div>
 
-  <div>
-    <button type="button" (click)="addNew()">Dodaj novi trosak</button>
-    <button type="button" (click)="deleteMarked()">Obrisi oznacene</button>
+    <div class="column is-one-quarter">
+      <div class="field">
+        <label class="label">Currency:</label>
+        <div class="control">
+          <input type="text" class="input" formControlName="currency" />
+        </div>
+      </div>
+    </div>
   </div>
 
-  <ng-container formArrayName="costs">
-    <div *ngFor="let cost of storeForm.get('costs').controls; let i = index" [formGroupName]="i">
-      <div>
-          <label>Product name:</label>
-          <input type="text" formControlName="productName" />
-      </div>
-      <div>
-        <label>Product category:</label>
-        <select>
-            <option></option>
-            <option></option>
-          </select>
-      </div>
-      <div>
-        <label>Quantity:</label>
-        <input type="number" formControlName="quantity" />
-      </div>
-      <div>
-        <label>Measure unit:</label>
-        <select>
-          <option></option>
-          <option></option>
-        </select>
-      </div>
-      <div>
-        <label>Price:</label>
-        <input type="number" formControlName="price" />
-      </div>
-      <div>
-        <label>Delete:</label>
-        <input type="checkbox" formControlName="markedForDeletion" />
-      </div>
-    </div>
-  </ng-container>
+  <div class="field">
+    <button type="button" class="button is-link" (click)="addNew()">Add new cost</button>
+    <button type="button" class="button is-danger" (click)="deleteMarked()">Delete marked</button>
+  </div>
 
-  </form>
+  <div class="control">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Product name</th>
+          <th>Product category</th>
+          <th>quantity</th>
+          <th>Meause unit</th>
+          <th>Price</th>
+          <th>Mark for deletion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container formArrayName="costs">
+          <tr *ngFor="let cost of storeForm.get('costs').controls; let i = index" [formGroupName]="i">
+
+            <td>
+              <input class="input" type="text" formControlName="productName" />
+            </td>
+
+            <td>
+              <select class="select">
+                <option *ngFor="let category of ProductCategories"> {{ category.Name }} </option>
+              </select>
+            </td>
+
+            <td>
+              <input class="input" type="number" formControlName="quantity" />
+            </td>
+
+            <td>
+              <select class="select">
+                <option *ngFor="let unit of MeasureUnits"> {{ unit.Value }} </option>
+              </select>
+            </td>
+
+            <td>
+              <input class="input" type="number" formControlName="price" />
+            </td>
+
+            <td>
+              <input id="deleteCost" type="checkbox" formControlName="markedForDeletion" (click)="markCostForDeletion(i, this)"/>
+            </td>
+
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+
+
+</form>

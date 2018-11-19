@@ -1,1 +1,16 @@
-<app-menu></app-menu>
+<div class="container is-fluid">
+    <div class="columns">
+        <div class="column is-one-quarter">
+            <ul *ngFor="let item of MenuItems">
+                <li>
+                    <a class="{{item.className}}" href="{{item.routeUrl}}">
+                        {{item.routeName}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="column">
+            <app-menu></app-menu>
+        </div>
+    </div>
+</div>

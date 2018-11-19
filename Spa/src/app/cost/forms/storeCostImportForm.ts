@@ -31,11 +31,27 @@ export class StoreCostImportForm {
         });
     }
 
-    addNew(): void {
+    public addNew(): void {
         this.costs.push(this.generateRow());
     }
 
-    isValid(): boolean {
+    public deleteMarked(formsIndexes: number[]): void {
+        if(Array.isArray(formsIndexes) && formsIndexes !== undefined && formsIndexes !== null) {
+            formsIndexes.sort();
+            console.log(formsIndexes);
+            
+            for(let value of formsIndexes) {
+                this.costs.removeAt(value)
+            }
+            
+            if(this.costs.length == 0) {
+                this.addNew();
+                this.costs.reset();
+            }
+        }
+    }
+      
+    public isValid(): boolean {
         return true;
     }
 }
