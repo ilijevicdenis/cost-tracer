@@ -66,4 +66,9 @@ export class ImportComponent implements OnInit {
       return this._productMeasureUnits;
   }
 
+  public saveReceipt() : void {
+      let receipt = this._formManager.BuildReceipt();
+      console.log(receipt);
+  }
+
 }

@@ -23,6 +23,7 @@
   <div class="field">
     <button type="button" class="button is-link" (click)="addNew()">Add new cost</button>
     <button type="button" class="button is-danger" (click)="deleteMarked()">Delete marked</button>
+    <button type="button" class="button is-info" (click)="saveReceipt()">Save receipt</button>
   </div>
 
   <div class="control">
@@ -46,8 +47,8 @@
             </td>
 
             <td>
-              <select class="select">
-                <option *ngFor="let category of ProductCategories"> {{ category.Name }} </option>
+              <select class="select" formControlName="productCategory">
+                <option [ngValue]="category.Id" *ngFor="let category of ProductCategories"> {{ category.Name }} </option>
               </select>
             </td>
 
@@ -56,8 +57,8 @@
             </td>
 
             <td>
-              <select class="select">
-                <option *ngFor="let unit of MeasureUnits"> {{ unit.Value }} </option>
+              <select class="select" formControlName="measureUnit">
+                <option  [ngValue]="unit.Id" *ngFor="let unit of MeasureUnits"> {{ unit.Value }} </option>
               </select>
             </td>
 

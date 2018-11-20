@@ -1,5 +1,7 @@
 import { FormBuilder, FormGroup, Validators, FormArray } from "@angular/forms";
 import { Injectable } from "@angular/core";
+import { Receipt } from "../models/Receipt";
+import { ReceiptItem } from "../models/ReceiptItem";
 
 @Injectable()
 export class StoreCostImportForm {
@@ -37,7 +39,8 @@ export class StoreCostImportForm {
 
     public deleteMarked(formsIndexes: number[]): void {
         if(Array.isArray(formsIndexes) && formsIndexes !== undefined && formsIndexes !== null) {
-            formsIndexes.sort();
+            
+            formsIndexes.sort().reverse();
             console.log(formsIndexes);
             
             for(let value of formsIndexes) {
@@ -54,4 +57,24 @@ export class StoreCostImportForm {
     public isValid(): boolean {
         return true;
     }
+
+    BuildReceipt(): Receipt {
+          var receipt = new Receipt();
+          receipt.CreatedDate = this.Instance.controls["costDate"].value;
+          
+          this.costs.controls.forEach(costGroup => {
+                let costControls = (<FormGroup>costGroup).controls;
+                let receiptItem = new ReceiptItem();
+                
+                receiptItem.ProductCategoryId = <number>costControls["productCategory"].value;
+                receiptItem.MeasureUnitId = <number>costControls["measureUnit"].value;
+                receiptItem.Price = <number>costControls["price"].value;
+                receiptItem.Name = <string>costControls["productName"].value;
+                receiptItem.Quantity = <number>costControls["quantity"].value;
+
+                receipt.Items.push(receiptItem);
+          });
+
+        return receipt;
+      }
 }
