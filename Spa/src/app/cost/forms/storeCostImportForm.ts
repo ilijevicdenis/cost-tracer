@@ -61,6 +61,7 @@ export class StoreCostImportForm {
     BuildReceipt(): Receipt {
           var receipt = new Receipt();
           receipt.CreatedDate = this.Instance.controls["costDate"].value;
+          receipt.CurrencyId =  <number>this.Instance.controls["currency"].value;
           
           this.costs.controls.forEach(costGroup => {
                 let costControls = (<FormGroup>costGroup).controls;

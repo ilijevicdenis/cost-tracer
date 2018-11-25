@@ -36,5 +36,19 @@
             "Value" : "kom",
             "IsActive" : true
         }
+    ],
+    "currencies": [
+        {
+            "Id" : 1,
+            "IsoName" : "Euro"
+        },
+        {
+            "Id" : 2,
+            "IsoName" : "USD"
+        },
+        {
+            "Id" : 3,
+            "IsoName" : "HRK"
+        }
     ]
 }

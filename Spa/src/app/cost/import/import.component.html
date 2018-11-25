@@ -14,7 +14,9 @@
       <div class="field">
         <label class="label">Currency:</label>
         <div class="control">
-          <input type="text" class="input" formControlName="currency" />
+            <select class="select" formControlName="currency">
+              <option [ngValue]="currency.Id" *ngFor="let currency of Currencies"> {{ currency.IsoName }} </option>
+            </select>
         </div>
       </div>
     </div>

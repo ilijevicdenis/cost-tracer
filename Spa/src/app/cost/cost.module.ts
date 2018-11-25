@@ -6,6 +6,7 @@ import { ImportComponent } from './import/import.component';
 import { StoreCostImportForm } from './forms/storeCostImportForm';
 import { ProductCategoryService } from '../shared/services/ProductCategoryService';
 import { MeasureUnitService } from '../shared/services/MeasureUnitService';
+import { CurrencyService } from '../shared/services/CurrencyService';
 
 @NgModule({
   imports: [
@@ -25,7 +26,7 @@ import { MeasureUnitService } from '../shared/services/MeasureUnitService';
     ])
   ],
   declarations: [ImportComponent],
-  providers: [ProductCategoryService, StoreCostImportForm, MeasureUnitService],
+  providers: [ProductCategoryService, StoreCostImportForm, MeasureUnitService, CurrencyService],
   exports: [RouterModule]
 })
 

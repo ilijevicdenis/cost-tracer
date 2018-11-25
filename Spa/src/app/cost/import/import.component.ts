@@ -5,6 +5,8 @@ import { ProductCategoryService } from '../../shared/services/ProductCategorySer
 import { ProductCategory } from '../../shared/models/ProductcCategory'
 import { MeasureUnitService } from '../../shared/services/MeasureUnitService';
 import { MeasureUnit } from '../../shared/models/MeasureUnit';
+import { CurrencyService } from '../../shared/services/CurrencyService';
+import { Currency } from '../../shared/models/Currency';
 
 
 @Component({
@@ -18,16 +20,20 @@ export class ImportComponent implements OnInit {
   private _productCategories : ProductCategory[];
   private _productMeasureUnits: MeasureUnit[]
   private _markedForDeletion: number[];
+  private _currencies : Currency[];
 
   constructor(
     private _formManager : StoreCostImportForm, 
     private _prodCatSvc : ProductCategoryService, 
-    private _prodMeasureUnitSvc: MeasureUnitService) {
+    private _prodMeasureUnitSvc: MeasureUnitService,
+    private _currencySvc : CurrencyService ) 
+    {
 
       this.storeForm = _formManager.Instance;
       this._productCategories = [];
       this._productMeasureUnits = [];
       this._markedForDeletion = [];
+      this._currencies = [];
    }
 
   ngOnInit() {
@@ -36,6 +42,9 @@ export class ImportComponent implements OnInit {
 
       this._prodMeasureUnitSvc.GetMeasureUnits().subscribe(data => 
           data.forEach(item => this._productMeasureUnits.push(MeasureUnit.Instantiate(item))));
+
+      this._currencySvc.GetCurrencies().subscribe(data => 
+          data.forEach(curr => this._currencies.push(Currency.CreateNew(curr))));
   }
 
   public addNew() : void {
@@ -58,6 +67,13 @@ export class ImportComponent implements OnInit {
     this._markedForDeletion = [];
   }
 
+  public saveReceipt() : void {
+      let receipt = this._formManager.BuildReceipt();
+      console.log(receipt);
+  }
+
+  // Public getters for collections
+
   public get ProductCategories() : ProductCategory[] {
     return this._productCategories;
   }
@@ -66,9 +82,7 @@ export class ImportComponent implements OnInit {
       return this._productMeasureUnits;
   }
 
-  public saveReceipt() : void {
-      let receipt = this._formManager.BuildReceipt();
-      console.log(receipt);
+  public get Currencies() : Currency[] {
+    return this._currencies;
   }
-
 }
