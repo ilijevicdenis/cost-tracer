@@ -1,0 +1,14 @@
+/home/denis/repos/cost-tracer/CostTracer.WebApi/bin/Debug/netcoreapp2.1/CostTracer.WebApi.deps.json
+/home/denis/repos/cost-tracer/CostTracer.WebApi/bin/Debug/netcoreapp2.1/CostTracer.WebApi.runtimeconfig.json
+/home/denis/repos/cost-tracer/CostTracer.WebApi/bin/Debug/netcoreapp2.1/CostTracer.WebApi.runtimeconfig.dev.json
+/home/denis/repos/cost-tracer/CostTracer.WebApi/bin/Debug/netcoreapp2.1/CostTracer.WebApi.dll
+/home/denis/repos/cost-tracer/CostTracer.WebApi/bin/Debug/netcoreapp2.1/CostTracer.WebApi.pdb
+/home/denis/repos/cost-tracer/CostTracer.WebApi/obj/Debug/netcoreapp2.1/CostTracer.WebApi.csprojAssemblyReference.cache
+/home/denis/repos/cost-tracer/CostTracer.WebApi/obj/Debug/netcoreapp2.1/CostTracer.WebApi.csproj.CoreCompileInputs.cache
+/home/denis/repos/cost-tracer/CostTracer.WebApi/obj/Debug/netcoreapp2.1/CostTracer.WebApi.RazorAssemblyInfo.cache
+/home/denis/repos/cost-tracer/CostTracer.WebApi/obj/Debug/netcoreapp2.1/CostTracer.WebApi.RazorAssemblyInfo.cs
+/home/denis/repos/cost-tracer/CostTracer.WebApi/obj/Debug/netcoreapp2.1/CostTracer.WebApi.AssemblyInfoInputs.cache
+/home/denis/repos/cost-tracer/CostTracer.WebApi/obj/Debug/netcoreapp2.1/CostTracer.WebApi.AssemblyInfo.cs
+/home/denis/repos/cost-tracer/CostTracer.WebApi/obj/Debug/netcoreapp2.1/CostTracer.WebApi.RazorTargetAssemblyInfo.cache
+/home/denis/repos/cost-tracer/CostTracer.WebApi/obj/Debug/netcoreapp2.1/CostTracer.WebApi.dll
+/home/denis/repos/cost-tracer/CostTracer.WebApi/obj/Debug/netcoreapp2.1/CostTracer.WebApi.pdb
