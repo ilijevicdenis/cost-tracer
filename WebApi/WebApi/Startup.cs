@@ -4,6 +4,7 @@ using DataAccess.Repositories;
 using Domain.Collections;
 using Domain.Models;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -24,7 +25,8 @@ namespace WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddCors();
+            services.AddMvc();
             services.AddDbContext<CostTracerContext>(
                 options => options.UseSqlServer(
                     Configuration.GetConnectionString("CostTracerDb"), b => b.MigrationsAssembly("DatabaseMigrations")));
@@ -44,8 +46,9 @@ namespace WebApi
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
-            app.UseMvc();
+            //   app.UseHttpsRedirection();
+            app.UseCors();
+            app.UseMvc(options => options.MapRoute("api", "api/{controller}/{action}/{id?}"));
         }
     }
 }
